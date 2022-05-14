@@ -1,0 +1,121 @@
+﻿@model PagedList.IPagedList<DmmmPortal.Models.Entities.Post>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+@using System.Text.RegularExpressions;
+@helper Truncate(string input, int lenght)
+{
+    if (input.Length <= lenght)
+    {
+        @Html.Raw(input)
+    }
+    else
+    {
+        @Html.Raw(input.Substring(0, input.IndexOf(" ", lenght)).ToString())
+    }
+}
+@section Style {
+
+    <link href="~/Content/client/blog.css" rel="stylesheet" />
+}
+    <div class="" style="background-color:#3c8dbc;padding:10px;color:#ffffff;">
+        <h3 style="text-align:center;">News / Updates</h3>
+    </div>
+
+<div class="container">
+
+
+    <div class="row" style="margin-top:50px;">
+        <div class="col-md-7">
+            @using (Html.BeginForm())
+            {
+
+                <div class="input-group" style="margin-left:10px;">
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                    <!-- /btn-group -->
+                    <input type="text" name="SearchString" value="@ViewBag.CurrentFilter" class="form-control" placeholder="Search...">
+                </div>
+
+            }
+           <div class="clearfix"></div>
+
+            <div class="vdo-log">
+                <div class="heading">
+                    <h2>News</h2>
+                </div>
+                @foreach (var items in Model)
+                {
+                    <div class="vdo-list" style="margin-bottom:5px;">
+                        <div class="vdo-thumb" style="margin-bottom:5px;">
+                            <a>
+                                @if (items.ImageModels.FirstOrDefault().ImageContent != null)
+                                {
+
+                                    <img src="data:image/jpg;base64,@(Convert.ToBase64String(items.ImageModels.FirstOrDefault().ImageContent))" class="" alt="" />
+
+
+                                }
+
+                            </a>
+                        </div>
+                        <div class="vdo-info">
+                            <div class="vdo-title">
+                                <a href="@Url.Action("Preview", new { id = items.Id })">
+                                    <h3>@items.Title</h3>
+                                </a>
+                            </div>
+                            <div class="vdo-desc" style="margin-bottom:5px;">
+                                @{
+
+                                    var noHtml = Regex.Replace(items.Content, @"<[^>]*(>|$)|&nbsp;|&zwnj;|&raquo;|&laquo;", string.Empty).Trim();
+                                    items.Content = noHtml;
+                                }
+
+                                @Html.Raw(Truncate(noHtml, 210))...
+                                <br />
+                                <div class="vdo-detail">@items.DatePosted.ToString("mm:hh tt") <span>|</span> @items.Comments.Count() <a href="#">Comment</a></div>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="clearfix"></div>
+                        </div>
+
+
+                    </div>
+
+                }
+                @*<div>
+
+                    <p>Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</p>
+
+                    @Html.PagedListPager(Model, page => Url.Action("News",
+    new { page }))
+                </div>*@
+            </div>
+        </div>
+            <div class="col-md-5">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h3 style="padding-bottom:5px;border-bottom:2px solid #3c8dbc;">Top Events</h3>
+
+                        <div class="panel">
+                            @foreach (var item in ViewBag.events)
+                            {
+                                <div class="panel-body" style="text-align:left;border-bottom:1px solid #3c8dbc;padding:5px 15px;padding-left:0px;">
+                                    <h4 style="color:#3c8dbc;">@item.Subject</h4>
+                                    <p style="line-height:1.2;">@item.DIscription</p>
+                                    <p>@item.Start.ToString("dd-MMMM-yyyy")</p>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+              
+
+
+            </div>
+
+       
+        </div>
+    </div>

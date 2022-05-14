@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Hospitals";
+}
+
+<div class="" style="background-color:#3c8dbc;padding:10px;color:#ffffff;margin-bottom:30px;">
+    <h3 style="text-align:center;">Hospitals</h3>
+</div>
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-12">
+
+          
+            <div class="">
+                @if (Model.Count() > 1)
+                {
+                    <div class="row">
+
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-md-3">
+                                <div class="panel" style="box-shadow:1px 1px 1px #3c8dbc;border:1px solid #3c8dbc;">
+                                    <div class="panel-body text-center sectioninfo">
+                                        @if (item != null)
+                                        {
+                                            if (item.SchoolLogo != null)
+                                            {
+                                                <img src="data:image/jpg;base64,@(Convert.ToBase64String(item.SchoolLogo))" class="img-responsive img-circle text-center" style="margin:0px auto;height:150px;" />
+
+                                            }
+                                            <p style="color:#3c8dbc;font-weight:bold;">@item.NameOfSection</p>
+
+                                            <a href="@item.WebsiteUrl"><button class="btn btn-primary">Visit School</button></a>
+                                        }
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div class="row">
+
+                        <div class="col-md-12" style="margin-top:30px;margin-bottom:50px;">
+                            <div class="panel" style="box-shadow:1px 1px 1px #3c8dbc;border:1px solid #3c8dbc;">
+                                <div class="panel-body text-center">
+                                    <p>
+                                        Content Coming Soon...
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                }
+
+
+            </div>
+        </div>
+    </div>
+</div>

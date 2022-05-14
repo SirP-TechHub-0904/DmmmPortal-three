@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<section class="content">
+
+
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3>@ViewBag.countschool</h3>
+
+                    <p>Schools<span></span></p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-graduation-cap"></i>
+                </div>
+                <a href="@Url.Action("Index", "Schools", new { area="AdminPanel"})" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h3>8</h3>
+
+                    <p>Apostolate</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-university"></i>
+                </div>
+                <a href="@Url.Action("Index", "Sections", new { area="AdminPanel"})" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+          
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h3 style="text-wrap:normal;">0  </h3>
+
+                        <p>Rev. Sisters</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-female"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+         
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3 style="text-wrap:normal;">0  </h3>
+                    <p>Hospital</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-hospital"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+    </div>
+
+    <div class="">
+        <h3 style="text-align:center;"><i> Coming soon...</i></h3>
+    </div>
+
+</section>
+
+
+@using DmmmPortal.Areas.DataService
+@{
+
+    string url = HttpContext.Current.Request.Url.AbsoluteUri;
+    Logger.log(User.Identity.Name, url.ToString());
+
+}

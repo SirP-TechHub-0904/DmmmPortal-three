@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<div class="" style="background-color:#3c8dbc;padding:10px;color:#ffffff;">
+    <h3 style="text-align:center;">Contact Us</h3>
+</div>
+<div class="row" style="margin-top:10px;">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+       
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+<div class="container" style="margin:0px 40px;padding:40px;text-align:center;">
+    <!-- contact -->
+    <div class="address" id="contact">
+        <div class="container">
+
+            @if (TempData["Emailf"] != null)
+            {
+                <div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+                    @TempData["Emailf"]
+                </div>
+            }
+            @if (TempData["Emails"] != null)
+            {
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+                    @TempData["Emails"]
+                </div>
+            }
+            <div class="address-row">
+                <div class="col-md-6 col-xs-6 address-right">
+                    <div class="address-info wow fadeInRight animated" data-wow-delay=".5s" style="box-shadow:2px 2px 2px #3c8dbc;">
+                        <h4>Address</h4>
+                        <p>
+                            <span><strong>Our Generalate </strong></span> Daughters of Mary Mother of Mercy
+
+                        </p>
+                        <p>
+                            P.O Box: 1383
+                        </p>
+                        <p>
+                            Ahiaeke - Umuahia, Abia State , Nigeria.
+                        </p>
+                    </div>
+                    <div class="address-info address-mdl wow fadeInRight animated" data-wow-delay=".7s" style="box-shadow:2px 2px 2px #3c8dbc;">
+                        <h4>Phone </h4>
+                        <p>234 (0)8123176553</p>
+                        <p>234 (0)8037901183</p>
+                    </div>
+                    <div class="address-info agileits-info wow fadeInRight animated" data-wow-delay=".6s" style="box-shadow:2px 2px 2px #3c8dbc;">
+                        <h4>Mail</h4>
+
+                        <p>
+                            <a href="mailto:info@dmmmg.org"> info@dmmmg.org</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-6 address-left wow agile fadeInLeft animated" data-wow-delay=".5s">
+                    <div class="address-grid">
+                        <h4 class="wow fadeIndown animated" data-wow-delay=".5s">Get In Touch</h4>
+                        @using (Html.BeginForm("Mail", "Home", null, FormMethod.Post, new { id = "", enctype = "multipart/form-data" }))
+                        {
+                            <input type="text" placeholder="Name" name="Name" required="">
+                            <input type="email" placeholder="Email" name="EmailAddress" required="">
+                            <input type="text" placeholder="Subject" name="subject" required="">
+                            <textarea placeholder="Message" required="" name="Message"></textarea>
+                            <input type="submit" value="SEND">
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//contact-->
+</div>

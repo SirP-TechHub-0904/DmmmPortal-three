@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="~/Content/images/DMMMC-11.png">
+    <title>@ViewBag.Title | Dmmmc</title>
+    <meta name="description" content="@ViewBag.MetaTitle">
+    <meta name="description" content="@ViewBag.MetaKeyword">
+    <meta name="description" content="@ViewBag.MetaDescription">
+
+    <meta content="Daughters Of Mary Mother of Mercy, To work for the glory of God, the honour of the ever Blessed Virgin Mary, for the sanctification of its members and the salvation of souls" name="description">
+    <meta content="online, bulletin, mass, sunday reading, missal, prayer, fasting, feast, st, dmmm, daughets, mary, mother, mercy, congregation, congromorate, genorate, convent, convention" name="keywords">
+    <meta content="dmmm" name="author">
+    <meta content="English" name="language">
+    <link rel="canonical" href="https://www.dmmmg.org/">
+    <link rel="alternate" href="https://www.dmmmg.org/" hreflang="en-us">
+    <meta property="og:title" content="Daughters Of Mary Mother of Mercy">
+    <meta property="og:description" content="Daughters Of Mary Mother of Mercy | To work for the glory of God, the honour of the ever Blessed Virgin Mary, for the sanctification of its members and the salvation of souls">
+    <meta property="og:url" content="https://www.dmmmg.org/">
+    <meta property="og:site_name" content="Daughters Of Mary Mother of Mercy">
+    <meta property="og:image" content="https://dmmmg.org/Content/dmmblue.png">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="Summery">
+    <meta name="twitter:site" content="https://www.dmmmg.org/">
+
+    <meta name="language" content="en-us">
+    <meta name="owner" content="dmmm">
+    <meta name="distribution" content="GLOBAL">
+    <meta name="city" content="Abia">
+    <meta name="country" content="NG">
+    <meta name="geo.placename" content="Abia">
+    <meta name="rating" content="general">
+    <meta name="copyright" content="Daughters Of Mary Mother of Mercy copyright © 2019">
+    <meta name="DC.Publisher" content="Daughters Of Mary Mother of Mercy">
+
+
+
+    @*@Styles.Render("~/Content/css")*@
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/css/ionicons.min.css" rel="stylesheet" />
+    <link href="~/Content/css/weather-icons.min.css" rel="stylesheet" />
+    <link href="~/Content/css/mainStyle.css" rel="stylesheet" />
+    <link href="~/Content/css/normalize.min.css" rel="stylesheet" />
+
+    <link href="~/Content/css/Site.css" rel="stylesheet" />
+    @RenderSection("Style", required: false)
+    <style>
+        body {
+            font-family: 'Georgia' !important;
+        }
+
+        #farmNav a {
+            color: #092c00 !important;
+            text-shadow: 1px 1px 1px #ffffff;
+        }
+
+        .fb-like-box, .fb-like-box span, .fb-like-box span iframe[style] {
+            width: 100% !important;
+        }
+    </style>
+</head>
+
+@{ 
+    string url = HttpContext.Current.Request.Url.AbsoluteUri;
+    // http://localhost:1302/TESTERS/Default6.aspx
+
+    string path = HttpContext.Current.Request.Url.AbsolutePath;
+    // /TESTERS/Default6.aspx
+
+    string host = HttpContext.Current.Request.Url.Host;
+    // localhost
+    string d = "";
+}
+<body style="padding-bottom:20px !important;">
+
+    <div class="themeWrapper" style="padding-bottom: 0px !important;">
+      
+        <div class="navbar navbar-inverse navbar-fixed-top" style="">
+            <div class="container">
+                <div class="navbar-header">
+                    
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                   
+                    <img src="~/Content/images/DMMMC-11.png" class="img-responsive" />
+                  
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav pull-right">
+                        <li>@Html.ActionLink("Home", "Main", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Apostolate", "Apostolate", "Home")</li>
+                        <li>@Html.ActionLink("Regions", "Regions", "Home")</li>
+                        <li>@Html.ActionLink("Calendar", "Calender", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li class="dropdown dropdown-toggle">
+                            <a href="#" data-toggle="dropdown">Publications <span><i class="fa fa-angle-down"></i></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="@Url.Action("NewsArticles", "Publications")">News/Article</a></li>
+                                <li><a href="@Url.Action("Videos", "Publications")">Video</a></li>
+                                <li><a href="@Url.Action("SchoolProjects", "Publications")">School Projects</a></li>
+                               
+                               
+                            </ul>
+                        </li>
+                        <li>@Html.ActionLink("Portal", "Index", "Portal", new { area = "Admin" }, null)</li>
+                       
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="" style="margin-top:70px;">
+
+
+            @RenderBody()
+        </div>
+
+        <footer style="background-image: url(../../Content/images/mary123.jpg);background-repeat:no-repeat;background-size:cover;">
+            <div class="fot-back" style="border-top: 4px solid #3c8dbc; border-bottom: 1px solid #3c8dbc; padding-bottom: 20px; padding-top: 30px;">
+                <div class="container" style="font-weight:bold !important;">
+                    <div class="row">
+                        <div class="col-md-6 link-foot">
+                            <p style="color: #2d2e2d;">DMMMG (Ecce Ancilla Domini-Fiat)</p>
+                            <hr style="border: 1px solid #3c8dbc" />
+                            
+                           
+                        </div>
+
+                        <div class="col-md-6 link-foot">
+                            <p style="color: #2d2e2d;">Contact Us</p>
+                            <hr style="border: 1px solid #3c8dbc" />
+                            <p><a href="@Url.Content("~/Home/Contact")">Contact Us Now...</a></p>
+                            <p> Otamiri Iriamogu, off Ochiagha bus stop,</p>
+                            <p> along B.M. Udokporo Crescent, Ihiagwa,</p>
+                            <p> Owerri west, Imo State.</p>
+                            
+                            <p>
+                                <i class="fa fa-phone"></i>:  +234 8036 767 480<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                +234 8029 991 100
+                            </p>
+                            <p><i class="fa fa-envelope-square"></i>: info@dmmmg.com<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; www.dmmmmg.com</p>
+                            <p><i class="fa fa-inbox"></i>&nbsp; P.O.Box: Ihiagwa 19</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <p class="bottom" style="margin-top: 15px; margin-bottom: 15px;">&copy; @DateTime.Now.Year -<b> DAUGHTERS OF MARY MOTHER OF MERCY CONGREGATION</b></p>
+            </div>
+        </footer>
+</div>
+<div id="BgLayer1" class="full-width"></div>
+    <script type="text/javascript">
+    if (typeof jQuery == 'undefined') { document.write('<script type="text/javascript" src="@Href("~/Content/Script/jquery.min.js")"><' + '/script>'); }
+   </script>
+
+    <script src="~/Content/Script/html5shiv.min.js"></script>
+    <script src="~/Content/Script/respond.min.js"></script>
+    <script src="~/Content/Script/bootstrap.min.js"></script>
+    <script src="~/Content/Script/BTScripts.js"></script>
+    <script src="~/Content/Script/resources.js"></script>
+            @RenderSection("scripts", required: false)
+    <script src="~/Content/Assest/ClientStyle/faq.js"></script>
+    <script src="~/Content/slider/js/jssor.slider.min.js"></script>
+    <script>
+
+        jQuery(document).ready(function ($) {
+            var options = {
+                $AutoPlay: 1,                                       //[Optional] Auto play or not, to enable slideshow, this option must be set to greater than 0. Default value is 0. 0: no auto play, 1: continuously, 2: stop at last slide, 4: stop on click, 8: stop on user navigation (by arrow/bullet/thumbnail/drag/arrow key navigation)
+                $AutoPlaySteps: 1,                                  //[Optional] Steps to go for each navigation request (this options applys only when slideshow disabled), the default value is 1
+                $Idle: 2000,                                        //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
+                $PauseOnHover: 1,                                   //[Optional] Whether to pause when mouse over if a slider is auto playing, 0 no pause, 1 pause for desktop, 2 pause for touch device, 3 pause for desktop and touch device, 4 freeze for desktop, 8 freeze for touch device, 12 freeze for desktop and touch device, default value is 1
+
+                $ArrowKeyNavigation: 1,   			                //[Optional] Steps to go for each navigation request by pressing arrow key, default value is 1.
+                $SlideEasing: $Jease$.$OutQuint,                    //[Optional] Specifies easing for right to left animation, default value is $Jease$.$OutQuad
+                $SlideDuration: 800,                                //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
+                $MinDragOffsetToSlide: 20,                          //[Optional] Minimum drag offset to trigger slide, default value is 20
+                //$SlideWidth: 600,                                 //[Optional] Width of every slide in pixels, default value is width of 'slides' container
+                //$SlideHeight: 300,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
+                $SlideSpacing: 0, 					                //[Optional] Space between each slide in pixels, default value is 0
+                $UISearchMode: 1,                                   //[Optional] The way (0 parellel, 1 recursive, default value is 1) to search UI components (slides container, loading screen, navigator container, arrow navigator container, thumbnail navigator container etc).
+                $PlayOrientation: 1,                                //[Optional] Orientation to play slide (for auto play, navigation), 1 horizental, 2 vertical, 5 horizental reverse, 6 vertical reverse, default value is 1
+                $DragOrientation: 1,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $Cols is greater than 1, or parking position is not 0)
+
+                $ArrowNavigatorOptions: {                           //[Optional] Options to specify and enable arrow navigator or not
+                    $Class: $JssorArrowNavigator$,                  //[Requried] Class to create arrow navigator instance
+                    $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                    $Steps: 1                                       //[Optional] Steps to go for each navigation request, default value is 1
+                },
+
+                $BulletNavigatorOptions: {                          //[Optional] Options to specify and enable navigator or not
+                    $Class: $JssorBulletNavigator$,                 //[Required] Class to create navigator instance
+                    $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                    $Steps: 1,                                      //[Optional] Steps to go for each navigation request, default value is 1
+                    $SpacingX: 12,                                  //[Optional] Horizontal space between each item in pixel, default value is 0
+                    $Orientation: 1                                 //[Optional] The orientation of the navigator, 1 horizontal, 2 vertical, default value is 1
+                }
+            };
+
+            var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+
+            //responsive code begin
+            //you can remove responsive code if you don't want the slider scales while window resizing
+            function ScaleSlider() {
+                var parentWidth = jssor_slider1.$Elmt.parentNode.clientWidth;
+                if (parentWidth) {
+                    jssor_slider1.$ScaleWidth(parentWidth - 30);
+                }
+                else
+                    window.setTimeout(ScaleSlider, 30);
+            }
+            ScaleSlider();
+
+            $(window).bind("load", ScaleSlider);
+            $(window).bind("resize", ScaleSlider);
+            $(window).bind("orientationchange", ScaleSlider);
+            //responsive code end
+        });
+    </script>
+</body>
+</html>

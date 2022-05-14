@@ -1,0 +1,353 @@
+﻿
+@{
+    ViewBag.Title = "Main";
+}
+
+
+
+<div class="container">
+
+
+    <div id="circle-shape-example">
+
+        <img src="~/Content/images/mother-of-mercy.png" class="curve" style="float:left;padding:15px 10px;">
+
+        <div class="dmmm-title" style="text-align:center;margin-top:20px;">DAUGHTERS OF MARY MOTHER OF MERCY</div>
+        <p class="text-justify" style="text-justify:auto;color:#080707;">
+            Bishop Anthony Gogo Nwedo CSSP was ordained on 17th May, 1959 as the first bishop of the newly created Umuahia. Diocese The area was backward, undeveloped, with very few primary schools and fewer secondary schools. The area also was predominantly protestant. He was given the charge of running and developing the new diocese and he needed help. First of all, he came to realize that Bishop Shanahan had met a similar situation in Onitsha which he handled successfully by building Catholic Schools as tools of evangelization and development. He therefore borrowed the idea and started building schools, colleges, hospitals and orphanages. But the question was: who would run these institutions for him? He tried to get a Religious Congregation to come down from overseas to the newly created diocese to help but none was available. He then asked Propaganda Fidei to help him find such a Religious Congregation that could help him. Their reply was loud and clear: “why not start your own?” Initially, he thought it was going to be an impossible venture but as time went on, the idea began to crystallize in his mind.
+            @Html.ActionLink("Read More", "About", "Home")
+        </p>
+    </div>
+</div>
+@*<div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div style="text-align: center;"><span style="color: #746f77; font-size: 18px; line-height: 30px; font-weight: 300;">Each year, hundreds of children and teens are removed from their homes due to abuse, neglect or</span></div>
+                <div style="text-align: center;"><span style="color: #746f77; font-size: 18px; line-height: 30px; font-weight: 300;"> abandonment. We manage foster care and related services for these youth.</span></div>
+
+            </div>
+            <div class="col-md-6">
+                <button class="btn" style="border:2px solid #3e6bbb;padding:20px 70px;font-weight:900;font-size:40px;">
+                    Donate Now
+                </button>
+            </div>
+        </div>
+    </div>*@
+
+<style>
+    .callout {
+        padding: 43px 0;
+        background: #3c8dbc !important;
+        margin: 0px;
+    }
+
+    .callout {
+        position: relative;
+        margin: 0 0 1rem 0;
+        padding: 1rem;
+        border: 1px solid rgba(10, 10, 10, 0.25);
+        border-radius: 0;
+        background-color: white;
+        color: white;
+    }
+
+    @@media print, screen and (min-width: 40em) {
+        .grid-margin-x {
+            margin-left: -0.9375rem;
+            margin-right: -0.9375rem;
+        }
+    }
+
+    @@media (max-width: 425px) {
+        .h4-title {
+            font-size: 14px;
+        }
+
+            .h4-title p {
+                font-size: 9px;
+            }
+    }
+
+    @@media (min-width: 425px) {
+        .h4-title {
+            font-size: 18px;
+        }
+
+            .h4-title p {
+                font-size: 10px;
+            }
+    }
+
+    .grid-margin-x {
+        margin-left: -0.625rem;
+        margin-right: -0.625rem;
+    }
+
+    .grid-x {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+    }
+
+    .callout .callout-title {
+        font-weight: bold;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        line-height: 1.5;
+        /*font-size: 1.5rem;*/
+        margin-top: 10px;
+    }
+
+    .callout .callout-actions {
+        padding: 18px 0;
+        font-size: 0;
+        text-align: right;
+    }
+
+        .callout .callout-actions .button {
+            display: inline-block;
+            vertical-align: top;
+            min-width: 213px;
+            margin: 0;
+        }
+
+    .button {
+        padding: 11px 15px 12px;
+        background: transparent;
+        border: 2px solid #fa6f1c;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #fa6f1c;
+    }
+
+    .button {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 0 1rem 0;
+        padding: 0.85em 1em;
+        border: 1px solid transparent;
+        border-radius: 0;
+        -webkit-transition: background-color 0.25s ease-out, color 0.25s ease-out;
+        transition: background-color 0.25s ease-out, color 0.25s ease-out;
+        font-family: inherit;
+        font-size: 0.9rem;
+        -webkit-appearance: none;
+        line-height: 1;
+        text-align: center;
+        cursor: pointer;
+        background-color: white;
+        color: #1779ba;
+    }
+
+    /*a {
+            line-height: inherit;
+            color: #1779ba;
+            text-decoration: none;
+            cursor: pointer;
+        }*/
+
+    .callout .callout-separator {
+        color: #1779ba;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+        .callout .callout-separator span {
+            display: inline-block;
+            vertical-align: middle;
+            width: 43px;
+            height: 43px;
+            color: #1779ba;
+            border-radius: 50%;
+            background: white;
+            text-align: center;
+            line-height: 43px;
+            font-size: 12px;
+        }
+
+    /**, *::before, *::after {
+            -webkit-box-sizing: inherit;
+            box-sizing: inherit;
+        }*/
+
+    .callout .callout-separator {
+        color: #fff;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .callout .callout-actions {
+        padding: 18px 0;
+        font-size: 0;
+        text-align: right;
+    }
+
+    .callout .callout-separator:before, .callout .callout-separator:after {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        width: 28px;
+        height: 1px;
+        background: white;
+    }
+
+    /**, *::before, *::after {
+            -webkit-box-sizing: inherit;
+            box-sizing: inherit;
+        }*/
+
+    @@media (max-width: 1199px) {
+        .callout .callout-actions {
+            text-align: center;
+        }
+
+        .callout .callout-actions {
+            padding: 18px 0;
+            font-size: 0;
+            text-align: right;
+        }
+    }
+
+    @@media (max-width: 767px) {
+        .callout .callout-separator {
+            display: block;
+            padding: 10px 0;
+            text-align: center;
+        }
+    }
+</style>
+
+<div class="callout" style="padding: 45px 0;margin:0 !important;">
+    <div class="container">
+        <div class="grid-x grid-margin-x">
+            <div class="cell col-sm-12 col-md-5">
+                <div class="callout-title h4-title">
+
+                    Want to Help?
+                    <p>
+                        Each year, hundreds of children and teens are removed from their homes due to abuse, neglect or
+                        abandonment. We manage foster care and related services for these youth.
+                    </p>
+                </div><!-- /.callout-title -->
+            </div><!-- /.cell large-6 -->
+
+            <div class="cell col-sm-12 col-md-6 text-center">
+                <div class="callout-actions">
+                    <a href="#" class="button">Become Volunteer</a>
+
+                    <span class="callout-separator">
+                        <span>Or</span>
+                    </span>
+
+                    <a href="#" class="button">Donations</a>
+                </div><!-- /.callout-actions -->
+            </div><!-- /.cell large-6 -->
+        </div>
+    </div><!-- /.row -->
+</div>
+<div class="container" style="padding:10px;">
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card" style="">
+                <img class="card-img-top" src="~/Content/images/sisterof.jpg" alt="Card image cap">
+            </div>
+        </div>
+        <div class="col-md-6">
+
+
+            <div class="card" style="">
+
+                <div class="card-body">
+                    <h5 class="card-title" style="color:#1779ba;font-weight:900;font-size:22px;margin-bottom: 0;">DMMM CALLING</h5>
+                    <p class="card-text">Daughters of Mary Mother of Mercy (DMMM) Formation</p>
+                </div>
+                <div class="card-body">
+                    <p><strong>YOU CAN BE A DAUGHTER OF MARY MOTHER OF MERCY IF:</strong></p>
+                    <div style="padding-left:30px;">
+                        <ul class="list-group list-group-flush">
+
+                            <li>
+                                You are an unmarried Catholic girl of commendable character;
+                            </li>
+                            <li>
+                                You desire to love God more ardently;
+                            </li>
+                            <li>
+                                You are eager to serve Christ poor;
+                            </li>
+                            <li>
+                                You are physically and mentally healthy.
+                            </li>
+                            <li>
+                                Contact us through the Phone number and Address below.
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="@Url.Action("About", "Home", new { area = "" })#history" class="card-link">Know More about DMMM</a>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- testimonials -->
+<div class="testimonials" id="testi">
+    <div class="container">
+        <h3 class="title"></h3>
+        <div class="w3_testimonials_grids">
+            <div class="slider">
+                <div class="flexslider">
+                    <ul class="slides">
+                        <li>
+                            <div class="col-xs-8 w3_testimonials_grid_left">
+                                <h6>Alison Ruth</h6>
+                                <p>
+                                    "Morbi cursus, turpis quis laoreet blandit, odio turpis imperdiet nisl, quis bibendum lorem purus lobortis nunc. Suspendisse
+                                    tincidunt eu sapien pellentesque interdum. Aenean lacus sapien, blandit vel nibh in, imperdiet egestas erat".
+                                </p>
+                            </div>
+                            <div class="col-xs-4 w3_testimonials_grid_right">
+                                <img src="~/Content/images/DMMMC-1.png" alt=" " class="img-responsive" />
+                            </div>
+                            <div class="clearfix"> </div>
+                        </li>
+                        <li>
+                            <div class="col-xs-8 w3_testimonials_grid_left">
+                                <h6>Adrian Joan</h6>
+                                <p>
+                                    "Morbi cursus, turpis quis laoreet blandit, odio turpis imperdiet nisl, quis bibendum lorem purus lobortis nunc. Suspendisse
+                                    tincidunt eu sapien pellentesque interdum. Aenean lacus sapien, blandit vel nibh in, imperdiet egestas erat".
+                                </p>
+                            </div>
+                            <div class="col-xs-4 w3_testimonials_grid_right">
+                                <img src="~/Content/images/DMMMC-1.png" alt=" " class="img-responsive" />
+                            </div>
+                            <div class="clearfix"> </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //testimonials -->
+@*@Html.Action("_News", "Home")*@
+
+
+@using DmmmPortal.Areas.DataService
+@{
+
+    string url = HttpContext.Current.Request.Url.AbsoluteUri;
+    Logger.log(User.Identity.Name, url.ToString());
+
+}

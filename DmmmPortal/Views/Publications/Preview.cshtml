@@ -1,0 +1,109 @@
+﻿@model DmmmPortal.Models.Entities.Post
+
+@{
+    ViewBag.Title = "Preview";
+}
+
+<div class="" style="background-color:#3c8dbc;padding:10px;color:#ffffff;">
+    <h3 style="text-align:center;">News / Update</h3>
+</div>
+
+<div class="container">
+
+
+    <div class="row" style="margin-top:50px;">
+        <div class="col-md-7">
+            <div class="content">
+                <div class="vdo-log margin_bottom">
+                    <div class="heading6">
+                        <h1>@Model.Title</h1>
+                    </div>
+                    <br />
+                    <div class="video-player"><img src="data:image/jpg;base64,@(Convert.ToBase64String(ViewBag.firstimage))" class="img-responsive" alt="" style="margin:0 auto;" /></div>
+                    <br /><div class="">
+
+    <div class="vb-desc"><a href="#" rel="nofollow">@Model.DatePosted</a> <span>|</span> <a href="#" rel="nofollow">Comment (@Model.Comments.Count())</a> <span>|</span> </div>
+
+    <div class="clear"></div>
+    <div class="">
+        <p class="text-justify">
+            @Html.Raw(Model.Content)
+        </p>
+    </div>
+    <hr style="border:1px solid #3c8dbc;" />
+    <div style="margin:15px 0;">
+        @if (Model.Comments == null)
+        {
+            <h4>No Comment</h4>
+        }
+        else
+        {
+           foreach (var i in Model.Comments)
+            {
+                <span style="color:#3c8dbc;font-weight:bold;font-size:12px;">@i.Name |</span>
+                <span style="color:#3c8dbc;font-weight:bold;font-size:12px;">@i.Email |</span>
+                <span style="color:#3c8dbc;font-weight:bold;font-size:12px;">@i.DateCommented</span>
+                <br />
+                <p>@i.Content</p>
+
+            }
+        }
+
+    </div>
+    <hr style="border:1px solid #3c8dbc;" />
+    <div class="">
+        @using (Html.BeginForm("Comment", "Publications", new { id = @Model.Id }, FormMethod.Post, null))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <div class="col-sm-6"><input type="text" name="name" placeholder="Fullname" class="form-control"></div>
+                <div class="col-sm-6"><input type="text" name="Email" placeholder="Email" class="form-control"></div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-sm-12">
+                    <label>Comment</label><br />
+                    <textarea name="text" rows="4" class="form-control">
+
+</textarea>
+
+                </div>
+            </div>
+            <br />
+            <div class="col-sm-12">
+                <button type="submit" class="btn btn-primary btn-flat">Comment</button>
+            </div>
+
+        }
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="row">
+                <div class="col-md-10">
+                    <h3 style="padding-bottom:5px;border-bottom:2px solid #3c8dbc;">Top Events</h3>
+
+                    <div class="panel">
+                        @foreach (var item in ViewBag.events)
+                        {
+                            <div class="panel-body" style="text-align:left;border-bottom:1px solid #3c8dbc;padding:5px 15px;padding-left:0px;">
+                                <h4 style="color:#3c8dbc;">@item.Subject</h4>
+                                <p style="line-height:1.2;">@item.DIscription</p>
+                                <p>@item.Start.ToString("dd-MMMM-yyyy")</p>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+</div>
+<br /><br />

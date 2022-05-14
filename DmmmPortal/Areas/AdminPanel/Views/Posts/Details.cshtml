@@ -1,0 +1,106 @@
+﻿@model DmmmPortal.Models.Entities.Post
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="box box-default">
+            <div class="box-header with-border">
+
+                <h3 class="box-title">Post Details</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Title)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Content)
+                    </dt>
+
+                    <dd>
+                        @Html.Raw(Model.Content)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DatePosted)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.DatePosted)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Status)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.PostedBy)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.PostedBy)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SortOrder)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SortOrder)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IsPublished)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.IsPublished)
+                    </dd>
+
+
+                </dl>
+            </div>
+            <div class="row">
+
+                @foreach (var item in ViewBag.images)
+                {
+                    if (item.ImageContent != null)
+                    {<div class="col-md-3">
+                            <img src="data:image/jpg;base64,@(Convert.ToBase64String(item.ImageContent))" class="img-responsive" style="" />
+
+                            
+                        </div>
+                    }
+                }
+
+                </div>
+                <p>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+                    @Html.ActionLink("Back to List", "Index")
+                </p>
+
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+
+
+        <div class="col-md-3"></div>
+
+    </div>

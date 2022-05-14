@@ -1,0 +1,118 @@
+﻿@model DmmmPortal.Models.Entities.Post
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="row">
+    <!-- left column -->
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <!-- general form elements -->
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Edit Post</h3>
+            </div>
+            @using (Html.BeginForm("Edit", "Posts", null, FormMethod.Post, new { id = "", enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+
+            <div class="box-body">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Id)
+                @Html.HiddenFor(model => model.DatePosted)
+                @Html.HiddenFor(model => model.PostedBy)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="">
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="">
+<textarea class="textarea" placeholder="Place some text here" name="Content" id="mytextarea"
+          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">@Model.Content</textarea>
+                        @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="">
+                        @Html.EnumDropDownListFor(model => model.Status, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SortOrder, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="">
+                        @Html.EditorFor(model => model.SortOrder, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.SortOrder, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IsPublished, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.IsPublished)
+                            @Html.ValidationMessageFor(model => model.IsPublished, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("Previous Image", htmlAttributes: new { @class = "control-label" })
+                    <div class="row">
+                        @foreach (var img in Model.ImageModels)
+                        {
+                            <div class="col-md-3 col-sm-3">
+                                <img src="data:image/jpg;base64,@(Convert.ToBase64String(img.ImageContent))" class="img-responsive" style="max-height:150px;max-width:150px;">
+
+                            </div>
+
+                        }
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    image
+                    <div class="">
+                        <div class="checkbox">
+                            <input type="file" name="upload" class="form-control" multiple="multiple" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a href="javascript: history.back()" class="btn btn-default">Cancel</a>
+                </div>
+
+            }
+        </div>
+
+    </div>
+    <div class="col-md-3"></div>
+
+</div>
+
+
+
+@section Scripts {
+                            @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="~/Content/Admin/tinymce/js/tinymce/tinymce.min.js"></script>
+    @*<script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>*@
+    <script>
+        tinymce.init({
+            selector: '#mytextarea'
+        });
+    </script>
+}

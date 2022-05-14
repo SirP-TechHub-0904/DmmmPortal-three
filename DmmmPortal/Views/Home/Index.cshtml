@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_LayoutSecond.cshtml";
+}
+
+
+
+@using DmmmPortal.Areas.DataService
+@{
+
+    string url = HttpContext.Current.Request.Url.AbsoluteUri;
+    Logger.log(User.Identity.Name, url.ToString());
+
+}
